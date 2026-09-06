@@ -1,0 +1,309 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: ui-sans-serif;
+  --color-page: #141210;
+  --color-foreground: #f4ede4;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* --- Desk reveal card & CTA (the white "seat" surface and its button) --- */
+  --color-card-background: #F7F3EC;
+  --color-backdrop-background: #000000;
+  --color-surface-text: #14110f;
+  --color-surface-border: rgba(20, 17, 15, 0.25);
+  --color-surface-border-hover: rgba(20, 17, 15, 0.55);
+  --color-surface-background-hover: rgba(20, 17, 15, 0.05);
+  --color-surface-focus-outline: #14110f;
+  --shadow-card: 0 40px 80px -20px rgba(0, 0, 0, 0.65);
+  --color-foreground-muted: rgba(244, 237, 228, 0.8);
+  --shadow-heading-glow: 0 0 34px rgba(214, 168, 106, 0.18);
+
+  /* --- Warm panel palette: Experience section & the About panel --- */
+  --color-panel-background: #F7F3EC;
+  --color-panel-border: #8B5E34;
+  --color-heading-text: #283618;
+  --color-body-text: #2B2420;
+  --color-accent-text: #8B5E34;
+  --color-divider-border: rgba(96, 108, 56, 0.15);
+  --color-image-border: #8B5E34;
+
+  /* --- Journal: an open book whose leaves turn --- */
+  --color-journal-paper: #F7F3EC;
+  /* Three progressively darker sheet tones. The deck reads as depth only if the
+     sheets darken as they recede, the way a real block of paper shades. */
+  --color-journal-sheet-1: #EFE6D6;
+  --color-journal-sheet-2: #E4D7C1;
+  --color-journal-sheet-3: #D6C5A9;
+  --color-journal-striation: rgba(139, 94, 52, 0.20);
+  --color-journal-gutter: rgba(43, 36, 32, 0.15);
+  --color-journal-spine: rgba(43, 36, 32, 0.30);
+  --color-journal-rule: rgba(96, 108, 56, 0.18);
+  --color-journal-control-border: #8B5E34;
+  --color-journal-control-text: #283618;
+  --color-journal-control-disabled-border: rgba(139, 94, 52, 0.28);
+  --color-journal-control-disabled-text: rgba(40, 54, 24, 0.35);
+  --shadow-journal-book: 0 30px 60px -18px rgba(0, 0, 0, 0.55);
+  /* Animated 0 -> 1 -> 0 across a page turn. Every bit of the leaf's lighting
+     is multiplied by it, so the leaf is visually inert at both ends of the turn
+     and neither its mount nor its unmount shows a pop. */
+  --journal-leaf-lift: 0;
+
+  /* --- Experience nav chips --- */
+  --color-nav-item-background: #F7F3EC;
+  --color-nav-item-border: #8B5E34;
+  --color-nav-item-text: #283618;
+  --color-nav-item-border-hover: #8B5E34;
+  --color-nav-item-background-hover: #c9b9aa;
+  --color-badge-background: #ffffff;
+  --color-badge-text: #FEFAE0;
+  --color-highlight-flash-border: #8B5E34;
+  --color-highlight-settle-border: #8B5E34;
+
+  /* --- Site chrome --- */
+  --color-navbar-text: #1e293b;
+  --color-footer-text: #1e293b;
+  --color-caption-text: #9ca3af;
+  --color-external-link-text: #3b82f6;
+}
+
+html {
+  background-color: var(--color-page);
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-page);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+.grain{
+    position:relative;
+  }
+  .grain::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(139,94,52,0.05) 0px, rgba(139,94,52,0.05) 1px, transparent 1px, transparent 60px),
+      repeating-linear-gradient(0deg, rgba(139,94,52,0.03) 0px, rgba(139,94,52,0.03) 1px, transparent 1px, transparent 60px);
+    pointer-events:none;
+  }
+
+@layer components {
+  .desk-backdrop {
+    background-color: var(--color-backdrop-background);
+  }
+
+  .desk-card {
+    background-color: var(--color-card-background);
+    color: var(--color-surface-text);
+  }
+
+  .desk-cta {
+    border-color: var(--color-surface-border);
+  }
+  .desk-cta:hover {
+    border-color: var(--color-surface-border-hover);
+    background-color: var(--color-surface-background-hover);
+  }
+  .desk-cta:focus-visible {
+    outline-color: var(--color-surface-focus-outline);
+  }
+
+  .experience-card {
+    background-color: var(--color-panel-background);
+    border-color: var(--color-panel-border);
+  }
+
+  .experience-heading {
+    color: var(--color-heading-text);
+  }
+
+  .experience-divider {
+    border-color: var(--color-divider-border);
+  }
+
+  .experience-date {
+    color: var(--color-accent-text);
+  }
+
+  .experience-toggle {
+    color: var(--color-body-text);
+  }
+  .experience-toggle:hover {
+    color: var(--color-accent-text);
+  }
+
+  .experience-bullets {
+    color: var(--color-body-text);
+  }
+
+  .experience-chip {
+    background-color: var(--color-nav-item-background);
+    border-color: var(--color-nav-item-border);
+    color: var(--color-nav-item-text);
+  }
+  .experience-chip:hover {
+    border-color: var(--color-nav-item-border-hover);
+    background-color: var(--color-nav-item-background-hover);
+  }
+
+  .experience-badge {
+    background-color: var(--color-badge-background);
+    color: var(--color-badge-text);
+  }
+
+  .mainpage-panel {
+    background-color: var(--color-panel-background);
+    color: var(--color-surface-text);
+  }
+
+  .mainpage-body {
+    color: var(--color-body-text);
+  }
+
+  .mainpage-image {
+    border-color: var(--color-image-border);
+  }
+
+  .mainpage-link {
+    color: var(--color-external-link-text);
+  }
+
+  /* --- Journal ---------------------------------------------------------- */
+
+  .journal-page {
+    background-color: var(--color-journal-paper);
+    color: var(--color-body-text);
+  }
+
+  /* The stack of sheets under each half, drawn as offset box-shadows rather
+     than real elements. A shadow rect spans [left + dx - spread, right + dx +
+     spread], so each layer here nets a 2px visible band once the layer above it
+     paints over the inner part: 6px of protrusion in three steps. Each step
+     shrinks by one more pixel than the last so the deck tapers instead of
+     reading as one slab, and the negative spread pulls every shadow's inner
+     edge back under the opaque page so none of it leaks into the gutter.
+     Shadows follow border-radius, so the asymmetric rounding carries through
+     the whole deck for free. */
+  .journal-stack-left {
+    box-shadow:
+      -3px 0 0 -1px var(--color-journal-sheet-1),
+      -6px 0 0 -2px var(--color-journal-sheet-2),
+      -9px 0 0 -3px var(--color-journal-sheet-3),
+      var(--shadow-journal-book);
+  }
+  .journal-stack-right {
+    box-shadow:
+      3px 0 0 -1px var(--color-journal-sheet-1),
+      6px 0 0 -2px var(--color-journal-sheet-2),
+      9px 0 0 -3px var(--color-journal-sheet-3),
+      var(--shadow-journal-book);
+  }
+
+  /* The block of sheets seen edge-on, pinned to the outer edge — the same
+     repeating-linear-gradient idiom as .grain, a few octaves finer — plus the
+     gutter shading that falls away toward the spine. */
+  .journal-edge-left {
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        var(--color-journal-striation) 0px, var(--color-journal-striation) 1px,
+        transparent 1px, transparent 4px
+      ),
+      linear-gradient(to left, var(--color-journal-gutter) 0px, transparent 44px);
+    background-size: 9px 100%, 100% 100%;
+    background-position: left center, right center;
+    background-repeat: no-repeat;
+  }
+  .journal-edge-right {
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        var(--color-journal-striation) 0px, var(--color-journal-striation) 1px,
+        transparent 1px, transparent 4px
+      ),
+      linear-gradient(to right, var(--color-journal-gutter) 0px, transparent 44px);
+    background-size: 9px 100%, 100% 100%;
+    background-position: right center, left center;
+    background-repeat: no-repeat;
+  }
+
+  /* Everything the turning leaf adds to the page beneath it rides
+     --journal-leaf-lift, which the flip animates 0 -> 1 -> 0. At both ends of
+     the turn the leaf is therefore pixel-identical to the static half it covers,
+     which is what makes mounting and unmounting it invisible. */
+  .journal-leaf {
+    box-shadow: 0 12px 34px -14px rgba(20, 17, 15, calc(0.55 * var(--journal-leaf-lift)));
+  }
+
+  .journal-shade-left {
+    background-image: linear-gradient(
+      to right,
+      rgba(20, 17, 15, calc(0.52 * var(--journal-leaf-lift))),
+      transparent 58%
+    );
+  }
+  .journal-shade-right {
+    background-image: linear-gradient(
+      to left,
+      rgba(20, 17, 15, calc(0.52 * var(--journal-leaf-lift))),
+      transparent 58%
+    );
+  }
+
+  .journal-spine {
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      var(--color-journal-gutter) 22%,
+      var(--color-journal-spine) 50%,
+      var(--color-journal-gutter) 78%,
+      transparent 100%
+    );
+  }
+
+  .journal-control {
+    background-color: var(--color-nav-item-background);
+    border-color: var(--color-journal-control-border);
+    color: var(--color-journal-control-text);
+  }
+  .journal-control:hover:not(:disabled) {
+    background-color: var(--color-nav-item-background-hover);
+  }
+  .journal-control:disabled {
+    border-color: var(--color-journal-control-disabled-border);
+    color: var(--color-journal-control-disabled-text);
+  }
+  .journal-control:focus-visible {
+    outline-color: var(--color-journal-control-border);
+  }
+
+  .journal-heading {
+    color: var(--color-heading-text);
+  }
+
+  .journal-caption {
+    color: var(--color-accent-text);
+  }
+
+  .journal-rule {
+    border-color: var(--color-journal-rule);
+  }
+
+  .navbar-text {
+    color: var(--color-navbar-text);
+  }
+
+  .site-footer {
+    color: var(--color-footer-text);
+  }
+
+  .scroll-hint-caption {
+    color: var(--color-caption-text);
+  }
+}

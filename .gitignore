@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+.env*.local
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+
+public/Infleqtion Logos
+
+skills-lock.json
+
+.agents
+.claude
+
+AGENTS.md
+CLAUDE.md
