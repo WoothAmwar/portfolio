@@ -143,6 +143,40 @@ export default function MainPagePanel({ ref }: { ref?: Ref<HTMLElement> }) {
         </div>
 
         {/* Spread 3 */}
+        <div className="flex h-full flex-col justify-center gap-3 text-center">
+          <h3 className="journal-heading text-[clamp(0.9rem,1.7vw,1.35rem)] font-semibold">
+            Mini Desk
+          </h3>
+          <hr className="journal-rule mx-auto w-full border-t" />
+          <div className="text-left flex flex-col gap-2">
+            <div>
+              Image of a small mini desk I built next to my actual desk that was shown earlier. 
+            </div>
+            <div>
+              Created mainly from random cardboard boxes, wooden planks, and empty tissue boxes we had lying around
+              This is probably like the 8th generation of this mini desk, and probably the last evolution
+            </div>
+            <div className="leading-4"> 
+              <small>
+              [This originally came about as a work station to write Rubiks-Cube guides for classmates back in 
+              middle school (I drew guides on how to solve 3x3's to people who wanted to learn), and has 
+              since evolved into a desk/shelf amalgamation.]              
+              </small>
+            </div>
+          </div>
+        </div>
+        <figure className="flex h-full flex-col justify-center gap-2">
+          <img
+            className="mainpage-image w-full border-2 p-1"
+            src="/minidesk-outlined-image.png"
+            alt="Image of my mini desk"
+          />
+          <figcaption className="journal-caption text-[clamp(0.6rem,0.95vw,0.75rem)]">
+            Picture of a "mini desk" I built, placed right behind my real desk (I sit in-between the two)
+          </figcaption>
+        </figure>
+
+        {/* Spread 4 */}
         <div className="flex h-full flex-col justify-center gap-4">
           <h3 className="journal-heading text-[clamp(0.9rem,1.7vw,1.35rem)] font-semibold">
             Places I have worked
