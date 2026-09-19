@@ -215,10 +215,7 @@ export default function DeskReveal() {
           {/* The desk. Its canvas is transparent, so the page colour shows through. */}
           <div ref={hostRef} aria-hidden className="absolute inset-0" />
 
-          {/* The greeting, over the backdrop and the desk but declared before
-              the card, so the card paints over it as it grows to fill the
-              screen rather than leaving it stranded on the white page. */}
-          <LandingMasthead />
+          
 
           {/* Position and size are driven per frame from the drawer's
               projection, until Enter hands the card over to CSS. */}
@@ -273,6 +270,11 @@ export default function DeskReveal() {
               Click to Take a Seat
             </Link> */}
           </div>
+
+          {/* The greeting, over the backdrop and the desk but declared before
+              the card, so the card paints over it as it grows to fill the
+              screen rather than leaving it stranded on the white page. */}
+          <LandingMasthead />
         </div>
       </section>
       }

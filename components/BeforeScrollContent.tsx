@@ -108,7 +108,7 @@ export default function ScrollHint() {
   if (dismissed) return null;
 
   return (
-    <div ref={containerRef} style={{ opacity: 0, willChange: 'transform, opacity' }} className="z-20 fixed inset-0">
+    <div ref={containerRef} style={{ opacity: 0, willChange: 'transform, opacity' }} className="z-20 fixed inset-0 pointer-events-none">
       <div className="absolute flex flex-col items-center gap-3 right-[clamp(1.25rem,3vw,3rem)] bottom-[clamp(0.75rem,3vh,2.5rem)]">
         <span className="text-[0.7rem] font-medium tracking-[0.24em] uppercase opacity-70">
           Scroll down
@@ -140,7 +140,7 @@ export default function ScrollHint() {
         </div>
       </div>
 
-      <div className="font-light text-sm text-gray-400 absolute left-[clamp(1.25rem,3vw,3rem)] bottom-[clamp(0.75rem,3vh,2.5rem)]">
+      <div className="font-light text-sm text-gray-400 absolute left-[clamp(1.25rem,3vw,3rem)] bottom-[clamp(0.75rem,3vh,2.5rem)] pointer-events-auto">
         <div>
           <div>Background image created with custom application</div>
           <div>Used <a href="https://www.favicon.cc/?" target="_blank" rel="noopener noreferrer" className="text-blue-500">this</a> favicon drawer website</div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { animate } from 'animejs';
+import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
 /**
@@ -72,9 +73,9 @@ export default function LandingMasthead() {
       className="absolute inset-x-0 top-[clamp(1.5rem,5vh,3.25rem)] flex justify-center px-[6%]"
       style={{ willChange: 'transform, opacity' }}
     >
-      <p
+      <div
         ref={textRef}
-        className="font-display font-semibold m-0 text-center text-7xl whitespace-nowrap"
+        className="font-display font-semibold m-0 text-center whitespace-nowrap"
         style={{
           // fontSize: 'clamp(1.5rem, 4.6vw, 4.25rem)',
           lineHeight: 1,
@@ -88,8 +89,11 @@ export default function LandingMasthead() {
           willChange: 'transform, opacity',
         }}
       >
-        Hi, I'm Anwar Kader
-      </p>
+        <div className="flex flex-col gap-2">
+          <p className="text-7xl">Hi, I'm Anwar Kader</p>
+          <Link href="/info" className="underline">Skip to profile &rarr;</Link>
+        </div>
+      </div>
     </div>
   );
 }
