@@ -37,7 +37,7 @@ const EXPERIENCES: ExperienceEntry[] = [
     org: "Research Computing Center",
     role: 'Visualization Software Engineer Intern',
     location: 'Chicago, Illinois',
-    start: 'September 2025',
+    start: 'April 2025',
     end: 'May 2026',
     bullets: [
       'Optimized system performance by reducing application load time by over 95% (20 minutes to 40 seconds) through object pooling, efficient memory management, and minimizing costly instantiations of 3D objects.',
@@ -52,7 +52,7 @@ const EXPERIENCES: ExperienceEntry[] = [
     role: 'Research Assistant Intern',
     location: 'Chicago, Illinois',
     start: 'April 2025',
-    end: 'December 2025',
+    end: 'May 2026',
     bullets: [
       'Greenfield development of an application that integrated with Anthropic Claude LLM API to display automatically redacted PII, supporting an ongoing PhD research project on privacy and security where I am a co-author on 1 paper.',
       'Improved performance and decreased retrieval latency by 50% by redesigning the UI and backend from the ground-up',
